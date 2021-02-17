@@ -9,8 +9,8 @@ public class Movement : MonoBehaviour, IMovement
     public float JumpForce = 8f;
 
     [Header("References")]
-    [SerializeField] SpriteRenderer spriteRend;
     public LayerMask surfaceLayer;
+    SpriteRenderer spriteRend;
     Collider2D coll;
     Rigidbody2D rb;
 
@@ -35,8 +35,9 @@ public class Movement : MonoBehaviour, IMovement
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
+        spriteRend = GetComponent<SpriteRenderer>();
         coll = GetComponent<Collider2D>();
+        rb = GetComponent<Rigidbody2D>();
 
         CalculateColliderValues();
 
@@ -61,11 +62,6 @@ public class Movement : MonoBehaviour, IMovement
         HandleMovement();
     }
 
-    private void LateUpdate()
-    {
-        UpdateSprite();
-    }
-
     #region Movement
     /// <summary>
     /// Handles player movement and jumping using input interfaces
@@ -75,18 +71,6 @@ public class Movement : MonoBehaviour, IMovement
         if (moveInputValue.x * System.Math.Sign(moveInputValue.x) > 0.01f)
         {
             rb.velocity = new Vector2(moveInputValue.x * MoveSpeed, rb.velocity.y);
-        }
-    }
-
-    void UpdateSprite()
-    {
-        if (rb.velocity.x < -0.01)
-        {   // turn left
-            spriteRend.flipX = true;
-        }
-        else if (rb.velocity.x > 0.01)
-        {   // turn right
-            spriteRend.flipX = false;
         }
     }
     #endregion

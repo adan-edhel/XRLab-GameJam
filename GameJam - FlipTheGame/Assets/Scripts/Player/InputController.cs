@@ -22,7 +22,7 @@ public class InputController : MonoBehaviour
     public bool IsGrounded;
     public bool IsJumping;
 
-    IMovement i_Movement;
+    IMovement[] i_Movement;
     IGravity i_Gravity;
 
     [HideInInspector]
@@ -32,13 +32,16 @@ public class InputController : MonoBehaviour
     {
         instance = this;
         lastCheckpoint = transform.position;
-        i_Movement = GetComponent<IMovement>();
+        i_Movement = GetComponents<IMovement>();
         i_Gravity = GetComponent<IGravity>();
     }
 
     public void OnMovement(InputAction.CallbackContext context)
     {
-        i_Movement.Movement(context.action.ReadValue<Vector2>());
+        for (int i = 0; i < i_Movement.Length; i++)
+        {
+            i_Movement[i].Movement(context.action.ReadValue<Vector2>());
+        }
     }
 
     public void OnJump(InputAction.CallbackContext context)
@@ -47,14 +50,20 @@ public class InputController : MonoBehaviour
         {
             if (IsGrounded)
             {
-                i_Movement.Jump(gravityInverted);
+                for (int i = 0; i < i_Movement.Length; i++)
+                {
+                    i_Movement[i].Jump(gravityInverted);
+                }
                 IsJumping = true;
             }
         }
 
         if (context.canceled)
         {
-            i_Movement.CutJump();
+            for (int i = 0; i < i_Movement.Length; i++)
+            {
+                i_Movement[i].CutJump();
+            }
             IsJumping = false;
         }
     }
