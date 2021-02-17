@@ -37,6 +37,8 @@ public class CameraHandler : MonoBehaviour
             virtualCameraNoise = virtualCamera.GetCinemachineComponent<Cinemachine.CinemachineBasicMultiChannelPerlin>();
             virtualCameraFollowZoom = virtualCamera.GetComponent<CinemachineFollowZoom>();
             confiner = virtualCamera.GetComponent<CinemachineConfiner>();
+
+            virtualCamera.Follow = InputController.instance.transform;
         }
         else
         {
