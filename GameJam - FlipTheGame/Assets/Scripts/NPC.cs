@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class NPC : MonoBehaviour
 {
+    public float reactionDistanceToPlayer = 14f;
+
     SpriteRenderer spriteRend;
     float distanceToPlayer;
 
@@ -15,7 +17,7 @@ public class NPC : MonoBehaviour
     private void Update()
     {
         distanceToPlayer = Vector2.Distance(transform.position, InputController.instance.gameObject.transform.position);
-        if (distanceToPlayer < 5f)
+        if (distanceToPlayer < reactionDistanceToPlayer)
         {
             if (transform.position.x < InputController.instance.gameObject.transform.position.x)
             {
