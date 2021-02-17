@@ -16,6 +16,7 @@ public class Conditions : MonoBehaviour
     private void Respawn()
     {
         transform.position = InputController.instance.lastCheckpoint;
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
 
     private void OnDrawGizmos()
