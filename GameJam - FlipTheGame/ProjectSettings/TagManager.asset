@@ -35,7 +35,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Checkpoint
   - Walkable
   m_SortingLayers:
   - name: Default
