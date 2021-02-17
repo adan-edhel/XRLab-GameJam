@@ -6,22 +6,6 @@
             "id": "a5d319e5-91bf-4322-990c-f0423bc450ab",
             "actions": [
                 {
-                    "name": "Jump",
-                    "type": "Button",
-                    "id": "a5e489dc-1dde-46ce-a29d-87e5bdbfd184",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "Pause",
-                    "type": "Button",
-                    "id": "969a7d41-c17f-4b21-8091-858f7a0d79c8",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
                     "name": "Movement",
                     "type": "Value",
                     "id": "e985ba1d-bdfa-4e0b-9e42-697b338cc8e2",
@@ -30,9 +14,25 @@
                     "interactions": ""
                 },
                 {
-                    "name": "SlowdownTime",
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "a5e489dc-1dde-46ce-a29d-87e5bdbfd184",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "InvertGravity",
                     "type": "Button",
                     "id": "b603c7c0-4016-4f4e-938c-e0d2e7dde846",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "ReturnToMenu",
+                    "type": "Button",
+                    "id": "969a7d41-c17f-4b21-8091-858f7a0d79c8",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -57,18 +57,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Pause",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "5c745c68-d0eb-4e21-94e8-d60cb3127e10",
-                    "path": "<Keyboard>/q",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "SlowdownTime",
+                    "action": "ReturnToMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -126,6 +115,17 @@
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "5c745c68-d0eb-4e21-94e8-d60cb3127e10",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "InvertGravity",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

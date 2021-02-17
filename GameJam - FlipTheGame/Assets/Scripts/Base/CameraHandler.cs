@@ -63,7 +63,7 @@ public class CameraHandler : MonoBehaviour
     /// <summary>
     /// Shakes the camera with the following parameters: Duration, Amplitude, Frequency. -- Duration always needs to be given a value, amplitude and frequency will use default value when left at 0. Defaults: Amp(1.2f), Freq(2.0f).
     /// </summary>
-    public void ShakeCamera(float duration, float amplitude, float frequency)
+    public void ShakeCamera(float duration, float amplitude = 1.2f, float frequency = 2.0f)
     {
         if (virtualCameraNoise == null)
         {
@@ -72,24 +72,6 @@ public class CameraHandler : MonoBehaviour
         }
 
         ShakeElapsedTime = duration / 10;
-
-        // Set Cinemachine Camera Noise parameters
-        if (amplitude <= 0)
-        {
-            virtualCameraNoise.m_AmplitudeGain = defaultShakeAmplitude;
-        }
-        else
-        {
-            virtualCameraNoise.m_AmplitudeGain = amplitude;
-        }
-        if (frequency <= 0)
-        {
-            virtualCameraNoise.m_FrequencyGain = defaultShakeFrequency;
-        }
-        else
-        {
-            virtualCameraNoise.m_FrequencyGain = frequency;
-        }
     }
 
     private void Update()
