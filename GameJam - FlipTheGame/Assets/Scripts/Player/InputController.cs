@@ -25,6 +25,8 @@ public class InputController : MonoBehaviour
     IMovement i_Movement;
     IGravity i_Gravity;
 
+    Transform lastCheckpoint;
+
     private void Awake()
     {
         instance = this;
@@ -72,6 +74,14 @@ public class InputController : MonoBehaviour
         if (context.performed)
         {
             SceneHandler.TransitionScene(0);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Checkpoint"))
+        {
+            lastCheckpoint = collision.transform;
         }
     }
 }
