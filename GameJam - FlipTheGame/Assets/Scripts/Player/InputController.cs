@@ -22,6 +22,8 @@ public class InputController : MonoBehaviour
     public bool IsGrounded;
     public bool IsJumping;
 
+    public bool AlternateIdle;
+
     IMovement[] i_Movement;
     IGravity i_Gravity;
 
@@ -55,6 +57,7 @@ public class InputController : MonoBehaviour
                     i_Movement[i].Jump(gravityInverted);
                 }
                 IsJumping = true;
+                AlternateIdle = !AlternateIdle;
             }
         }
 
@@ -77,7 +80,12 @@ public class InputController : MonoBehaviour
                 gravityInverted = !gravityInverted;
                 i_Gravity.InvertGravity(gravityInverted);
                 IsJumping = true;
+                AlternateIdle = !AlternateIdle;
             }
+        }
+        if (context.canceled)
+        {
+            IsJumping = false;
         }
     }
 
