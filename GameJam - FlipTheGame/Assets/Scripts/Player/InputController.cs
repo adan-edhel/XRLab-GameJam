@@ -36,6 +36,8 @@ public class InputController : MonoBehaviour
         lastCheckpoint = transform.position;
         i_Movement = GetComponents<IMovement>();
         i_Gravity = GetComponent<IGravity>();
+
+        Cursor.visible = false;
     }
 
     public void OnMovement(InputAction.CallbackContext context)
