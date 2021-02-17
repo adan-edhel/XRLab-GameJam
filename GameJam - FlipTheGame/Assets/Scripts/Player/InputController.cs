@@ -42,7 +42,14 @@ public class InputController : MonoBehaviour
     {
         for (int i = 0; i < i_Movement.Length; i++)
         {
-            i_Movement[i].Movement(context.action.ReadValue<Vector2>());
+            if (gravityInverted && CameraHandler.Instance.enableCameraFlipping)
+            {
+                i_Movement[i].Movement(-context.action.ReadValue<Vector2>());
+            }
+            else
+            {
+                i_Movement[i].Movement(context.action.ReadValue<Vector2>());
+            }
         }
     }
 
@@ -73,6 +80,8 @@ public class InputController : MonoBehaviour
 
     public void OnInvertGravity(InputAction.CallbackContext context)
     {
+        return;
+
         if (context.performed)
         {
             if (IsGrounded)
@@ -103,6 +112,12 @@ public class InputController : MonoBehaviour
         {
             lastCheckpoint = collision.transform.position;
             Destroy(collision.gameObject);
+        }
+
+        if (collision.gameObject.layer == LayerMask.NameToLayer("GravityPoint"))
+        {
+            gravityInverted = !gravityInverted;
+            i_Gravity.InvertGravity(gravityInverted);
         }
     }
 }

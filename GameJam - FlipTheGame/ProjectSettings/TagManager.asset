@@ -33,8 +33,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - Obstacle
+  - GravityPoint
   - Checkpoint
   - Walkable
   m_SortingLayers:

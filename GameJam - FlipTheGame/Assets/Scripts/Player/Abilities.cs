@@ -19,11 +19,14 @@ public class Abilities : MonoBehaviour, IGravity
         {
             rb.gravityScale = -1;
             spriteRend.flipY = true;
+
+            CameraHandler.Instance.FlipCamera(true, spriteRend.flipX);
         }
         else
         {
             rb.gravityScale = 1;
             spriteRend.flipY = false;
+            CameraHandler.Instance.FlipCamera(false);
         }
     }
 }

@@ -25,13 +25,14 @@ public class Movement : MonoBehaviour, IMovement
     private float groundHeightOffset;
     float surfaceCheckDelayValue = .2f;
     float surfaceCheckDelay;
+    float cameraShakeVelocity = 11;
 
     // Movement Input Value
     [HideInInspector] public Vector2 moveInputValue;
 
     float originalFrictionValue = 50;
     Vector2 velocity;
-    Vector2 oldVelocity;
+    public Vector2 oldVelocity;
 
     private void Awake()
     {
@@ -160,17 +161,35 @@ public class Movement : MonoBehaviour, IMovement
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //Ground Impact Camera Shake
-        if (oldVelocity.y < -7)
+        if (InputController.instance.gravityInverted)
         {
-            if (oldVelocity.y < -12)
+            if (oldVelocity.y > cameraShakeVelocity)
             {
-                CameraHandler.Instance.ShakeCamera(2, 6);
-            }
-            else
-            {
-                CameraHandler.Instance.ShakeCamera(1);
+                if (oldVelocity.y > cameraShakeVelocity * 2)
+                {
+                    CameraHandler.Instance.ShakeCamera(4, 6);
+                }
+                else
+                {
+                    CameraHandler.Instance.ShakeCamera(2, 3);
+                }
             }
         }
+        else
+        {
+            if (oldVelocity.y < -cameraShakeVelocity)
+            {
+                if (oldVelocity.y < -cameraShakeVelocity * 2)
+                {
+                    CameraHandler.Instance.ShakeCamera(4, 6);
+                }
+                else
+                {
+                    CameraHandler.Instance.ShakeCamera(2, 3);
+                }
+            }
+        }
+
     }
     #endregion
 
@@ -184,7 +203,7 @@ public class Movement : MonoBehaviour, IMovement
         {
             slopeRayHeight = coll.bounds.extents.y;
             groundHeightOffset = coll.bounds.extents.y;
-            groundCollidersOffset = coll.bounds.size.x / 2;
+            groundCollidersOffset = coll.bounds.size.x / 3;
         }
     }
     void IMovement.Movement(Vector2 value)
@@ -221,4 +240,9 @@ public class Movement : MonoBehaviour, IMovement
         }
     }
     #endregion
+
+    private void OnDisable()
+    {
+        rb.sharedMaterial.friction = originalFrictionValue;
+    }
 }

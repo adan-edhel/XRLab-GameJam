@@ -7,11 +7,16 @@ public class CameraHandler : MonoBehaviour
 
     public bool Dialogue;
 
-    // Cinemachine Shake Values
+    [Header("Camera Shake Values")]
     [SerializeField] float defaultShakeAmplitude = 1.2f;         // Cinemachine Noise Profile Parameter
     [SerializeField] float defaultShakeFrequency = 2.0f;         // Cinemachine Noise Profile Parameter
 
+    [Header("Camera Flip Values")]
+    public bool enableCameraFlipping;
+    [SerializeField] float flipCameraSpeed = 1f;
+
     float ShakeElapsedTime = 0f;
+    float targetValue = 0f;
 
     // Cinemachine Virtual Camera
     private CinemachineVirtualCamera virtualCamera;
@@ -74,6 +79,42 @@ public class CameraHandler : MonoBehaviour
         }
 
         ShakeElapsedTime = duration / 10;
+        virtualCameraNoise.m_AmplitudeGain = amplitude;
+        virtualCameraNoise.m_FrequencyGain = frequency;
+    }
+
+    /// <summary>
+    /// Flips the camera upside down in a lerp.
+    /// </summary>
+    /// <param name="upsideDown"></param>
+    /// <param name="rotateLeft"></param>
+    public void FlipCamera(bool upsideDown, bool rotateLeft = true)
+    {
+        if (virtualCamera == null)
+        {
+            Debug.Log("Cinemachine virtual camera component not assigned!");
+            return;
+        }
+
+        if (enableCameraFlipping == false) return;
+
+        // --------------------------------------
+
+        if (upsideDown)
+        {
+            if (rotateLeft)
+            {
+                targetValue = -180f;
+            }
+            else
+            {
+                targetValue = 180f;
+            }
+        }
+        else
+        {
+            targetValue = 0f;
+        }
     }
 
     private void Update()
@@ -98,6 +139,11 @@ public class CameraHandler : MonoBehaviour
             // If Camera Shake effect is over, reset variables
             virtualCameraNoise.m_AmplitudeGain = 0f;
             ShakeElapsedTime = 0f;
+        }
+
+        if (enableCameraFlipping)
+        {
+            virtualCamera.m_Lens.Dutch = Mathf.Lerp(virtualCamera.m_Lens.Dutch, targetValue, flipCameraSpeed / 100);
         }
 
         // If player is in a dialogue, zoom in

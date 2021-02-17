@@ -25,4 +25,12 @@ public class Conditions : MonoBehaviour
         Gizmos.DrawLine(new Vector3(-100, respawnThresholds[0], 0), new Vector3(100, respawnThresholds[0], 0));
         Gizmos.DrawLine(new Vector3(-100, respawnThresholds[1], 0), new Vector3(100, respawnThresholds[1], 0));
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
+        {
+            Respawn();
+        }
+    }
 }

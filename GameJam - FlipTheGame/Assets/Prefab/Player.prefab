@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 7729482887789824663}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55,6 +55,7 @@ MonoBehaviour:
   gravityInverted: 0
   IsGrounded: 0
   IsJumping: 0
+  AlternateIdle: 0
   lastCheckpoint: {x: 0, y: 0, z: 0}
 --- !u!114 &2320821162826086918
 MonoBehaviour:
@@ -68,8 +69,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 204c694f8b747d94a9eac9b6a85ae83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 15
-  JumpForce: 10
+  MoveSpeed: 12
+  JumpForce: 6
   surfaceLayer:
     serializedVersion: 2
     m_Bits: 2147483648
@@ -290,7 +291,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.1133333, y: 2.5191243}
+  m_Size: {x: 1, y: 2.4}
   m_Direction: 0
 --- !u!95 &7729482887789824663
 Animator:
