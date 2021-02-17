@@ -76,6 +76,7 @@ public class InputController : MonoBehaviour
             {
                 gravityInverted = !gravityInverted;
                 i_Gravity.InvertGravity(gravityInverted);
+                IsJumping = true;
             }
         }
     }
