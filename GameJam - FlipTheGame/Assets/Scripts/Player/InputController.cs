@@ -25,11 +25,13 @@ public class InputController : MonoBehaviour
     IMovement i_Movement;
     IGravity i_Gravity;
 
-    Transform lastCheckpoint;
+    [HideInInspector]
+    public Vector3 lastCheckpoint;
 
     private void Awake()
     {
         instance = this;
+        lastCheckpoint = transform.position;
         i_Movement = GetComponent<IMovement>();
         i_Gravity = GetComponent<IGravity>();
     }
@@ -81,7 +83,8 @@ public class InputController : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Checkpoint"))
         {
-            lastCheckpoint = collision.transform;
+            lastCheckpoint = collision.transform.position;
+            Destroy(collision.gameObject);
         }
     }
 }
