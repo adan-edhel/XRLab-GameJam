@@ -1,7 +1,34 @@
 fileFormatVersion: 2
 guid: 3474f829fe4f2d54eb270ccb9157e643
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 8586960986505769138
+    second: characters idle_0
+  - first:
+      213: -121345171180245383
+    second: characters idle_1
+  - first:
+      213: -1614387289263391897
+    second: characters idle_2
+  - first:
+      213: -3813035017074842924
+    second: characters idle_3
+  - first:
+      213: -3717328552560909476
+    second: characters idle_4
+  - first:
+      213: -2191926047895260270
+    second: characters idle_5
+  - first:
+      213: -5320199530977926730
+    second: characters idle_6
+  - first:
+      213: 6125359623476692364
+    second: characters idle_7
+  - first:
+      213: -6323340512945865168
+    second: characters idle_8
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,12 +68,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 300
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,9 +102,96 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: characters idle_0
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 80
+        width: 400
+        height: 800
+      alignment: 9
+      pivot: {x: 0.4459383, y: 0.5268985}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b070d485830b2770800000000000000
+      internalID: 8586960986505769138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characters idle_1
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 80
+        width: 400
+        height: 800
+      alignment: 9
+      pivot: {x: 0.45550767, y: 0.528877}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97ea790b535e05ef0800000000000000
+      internalID: -121345171180245383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characters idle_3
+      rect:
+        serializedVersion: 2
+        x: 1830
+        y: 80
+        width: 400
+        height: 800
+      alignment: 9
+      pivot: {x: 0.46412355, y: 0.52689856}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d2e023bad0651bc0800000000000000
+      internalID: -3813035017074842924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -89,8 +203,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
   spritePackingTag: 
-  pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
+  pSDRemoveMatte: 1
+  pSDShowRemoveMatteOption: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 

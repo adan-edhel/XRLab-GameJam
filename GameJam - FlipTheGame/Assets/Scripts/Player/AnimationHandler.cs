@@ -22,9 +22,11 @@ public class AnimationHandler : MonoBehaviour, IMovement
 
     void UpdateAnimatorValues()
     {
-        anim.SetFloat("Velocity", Mathf.Abs(moveInput));
+        anim.SetFloat("XInput", Mathf.Abs(moveInput));
+        anim.SetFloat("YVelocity", rb.velocity.y);
         anim.SetBool("Jumping", InputController.instance.IsJumping);
         anim.SetBool("Grounded", InputController.instance.IsGrounded);
+        anim.SetBool("Alternate Idle", InputController.instance.AlternateIdle);
     }
 
     void UpdateSprite()
