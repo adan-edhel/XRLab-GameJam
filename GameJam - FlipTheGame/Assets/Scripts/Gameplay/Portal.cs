@@ -27,7 +27,6 @@ public class Portal : MonoBehaviour
 
     private void Start()
     {
-
         // Assign portals of the same type to Connected Portals list
         AssignConnectedPortals();
 
@@ -87,7 +86,8 @@ public class Portal : MonoBehaviour
         if (destinationPortal == null)
         {
             isActivatable = false;
-            Debug.Log($"No portals connected to {gameObject.name} in {transform.root.name}.");
+            //gameObject.SetActive(false);
+            //Debug.Log($"No portals connected to {gameObject.name} in {transform.root.name}.");
         }
 
         // Warn if multiple portals are connected to current portal
