@@ -25,6 +25,7 @@ public class InputController : MonoBehaviour
     public bool Interacting;
     public bool Teleporting;
 
+    public bool enableInputInvert;
     public bool AlternateIdle;
 
     IMovement[] i_Movement;
@@ -86,7 +87,7 @@ public class InputController : MonoBehaviour
 
     public void OnInvertGravity(InputAction.CallbackContext context)
     {
-        return;
+        if (!enableInputInvert) return;
 
         if (context.performed)
         {
