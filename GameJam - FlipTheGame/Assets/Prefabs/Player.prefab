@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 2320821162826086917}
   - component: {fileID: 442956981505988688}
   - component: {fileID: 7729482887789824663}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -55,8 +55,12 @@ MonoBehaviour:
   gravityInverted: 0
   IsGrounded: 0
   IsJumping: 0
+  Interacting: 0
+  Teleporting: 0
   AlternateIdle: 0
   lastCheckpoint: {x: 0, y: 0, z: 0}
+  teleportDestination: {fileID: 0}
+  PortalList: []
 --- !u!114 &2320821162826086918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,6 +255,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: b603c7c0-4016-4f4e-938c-e0d2e7dde846
     m_ActionName: Gameplay/SlowdownTime[/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2320821162826086968}
+        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
+        m_MethodName: OnInteract
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: ed97bfd4-ab14-4e75-930f-35bdc96a0acf
+    m_ActionName: Gameplay/Interact[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay

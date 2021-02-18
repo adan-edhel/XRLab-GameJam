@@ -32,7 +32,7 @@ public class Movement : MonoBehaviour, IMovement
 
     float originalFrictionValue = 50;
     Vector2 velocity;
-    public Vector2 oldVelocity;
+    Vector2 oldVelocity;
 
     private void Awake()
     {

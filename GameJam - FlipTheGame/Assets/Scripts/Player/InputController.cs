@@ -1,5 +1,6 @@
 using UnityEngine.InputSystem;
 using UnityEngine;
+using System.Collections.Generic;
 
 public interface IMovement
 {
@@ -21,6 +22,8 @@ public class InputController : MonoBehaviour
     public bool gravityInverted;
     public bool IsGrounded;
     public bool IsJumping;
+    public bool Interacting;
+    public bool Teleporting;
 
     public bool AlternateIdle;
 
@@ -29,6 +32,9 @@ public class InputController : MonoBehaviour
 
     [HideInInspector]
     public Vector3 lastCheckpoint;
+    public Transform teleportDestination;
+
+    public List<Portal> PortalList = new List<Portal>();
 
     private void Awake()
     {
@@ -36,8 +42,6 @@ public class InputController : MonoBehaviour
         lastCheckpoint = transform.position;
         i_Movement = GetComponents<IMovement>();
         i_Gravity = GetComponent<IGravity>();
-
-        Cursor.visible = false;
     }
 
     public void OnMovement(InputAction.CallbackContext context)
@@ -105,6 +109,32 @@ public class InputController : MonoBehaviour
         if (context.performed)
         {
             SceneHandler.TransitionScene(0);
+        }
+    }
+
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Interacting = true;
+        }
+    }
+
+    public void Teleport(Vector3 destination)
+    {
+        Interacting = false;
+        transform.position = new Vector3(destination.x, destination.y, 0);
+    }
+
+    public void PortalRegistry(Portal portal)
+    {
+        if (PortalList.Contains(portal))
+        {
+            PortalList.Remove(portal);
+        }
+        else
+        {
+            PortalList.Add(portal);
         }
     }
 
