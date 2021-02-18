@@ -49,6 +49,7 @@ public class EndTrigger : MonoBehaviour
                 anim.SetBool("Victory", true);
             }
 
+            InputController.instance.enableInputInvert = true;
             startCountdown = true;
         }
     }
