@@ -118,6 +118,10 @@ public class InputController : MonoBehaviour
         {
             Interacting = true;
         }
+        if (context.canceled)
+        {
+            Interacting = false;
+        }
     }
 
     public void Teleport(Vector3 destination)

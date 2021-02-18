@@ -15,6 +15,8 @@ public class Portal : MonoBehaviour
     // Layers to check collision with
     [SerializeField] LayerMask aliveEntities;
 
+    public Portal destinationPortal;
+
     public bool isActivatable;
     public bool isRepeatable;
 
@@ -82,7 +84,7 @@ public class Portal : MonoBehaviour
         }
 
         // Warn if no portals are connected to current portal
-        if (connectedPortals.Count == 0)
+        if (destinationPortal == null)
         {
             isActivatable = false;
             Debug.Log($"No portals connected to {gameObject.name} in {transform.root.name}.");
@@ -91,7 +93,7 @@ public class Portal : MonoBehaviour
         // Warn if multiple portals are connected to current portal
         if (connectedPortals.Count > 1)
         {
-            Debug.Log($"Multiple portals connected to {gameObject.name} in {transform.root.name}. This will randomize its destination.");
+            //Debug.Log($"Multiple portals connected to {gameObject.name} in {transform.root.name}. This will randomize its destination.");
         }
     }
 
@@ -101,7 +103,9 @@ public class Portal : MonoBehaviour
     /// <returns></returns>
     Transform SelectPortalToTeleportTo()
     {
-        return connectedPortals[Random.Range(0, connectedPortals.Count)].transform;
+        //return connectedPortals[Random.Range(0, connectedPortals.Count)].transform;
+
+        return destinationPortal?.transform;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -131,6 +135,8 @@ public class Portal : MonoBehaviour
         if (!isActivatable && !isRepeatable) return;
 
         if (!InputController.instance.Interacting) return;
+
+        if (destinationPortal == null) return;
 
         // If colliding object has player tag
         if (collision.transform.CompareTag("Player"))
