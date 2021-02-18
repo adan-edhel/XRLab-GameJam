@@ -49,6 +49,7 @@ MonoBehaviour:
   aliveEntities:
     serializedVersion: 2
     m_Bits: 64
+  destinationPortal: {fileID: 0}
   isActivatable: 1
   isRepeatable: 0
 --- !u!58 &4689827917373825672
@@ -81,14 +82,6 @@ PrefabInstance:
     - target: {fileID: 406902, guid: 11943dcb81a97804fbd4b58ce063f22b, type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 406902, guid: 11943dcb81a97804fbd4b58ce063f22b, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 406902, guid: 11943dcb81a97804fbd4b58ce063f22b, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 406902, guid: 11943dcb81a97804fbd4b58ce063f22b, type: 3}
       propertyPath: m_LocalPosition.x

@@ -49,6 +49,7 @@ MonoBehaviour:
   aliveEntities:
     serializedVersion: 2
     m_Bits: 64
+  destinationPortal: {fileID: 0}
   isActivatable: 1
   isRepeatable: 0
 --- !u!58 &4780364622676147883
@@ -121,6 +122,18 @@ PrefabInstance:
     - target: {fileID: 436292, guid: 6da08197388d2854cbd29c147b0c7fa4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 19802926, guid: 6da08197388d2854cbd29c147b0c7fa4, type: 3}
+      propertyPath: prewarm
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19862448, guid: 6da08197388d2854cbd29c147b0c7fa4, type: 3}
+      propertyPath: prewarm
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19896332, guid: 6da08197388d2854cbd29c147b0c7fa4, type: 3}
+      propertyPath: prewarm
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6da08197388d2854cbd29c147b0c7fa4, type: 3}
