@@ -167,11 +167,11 @@ public class Movement : MonoBehaviour, IMovement
             {
                 if (oldVelocity.y > cameraShakeVelocity * 2)
                 {
-                    CameraHandler.Instance.ShakeCamera(4, 6);
+                    CameraHandler.Instance.ShakeCamera(3, 4);
                 }
                 else
                 {
-                    CameraHandler.Instance.ShakeCamera(2, 3);
+                    CameraHandler.Instance.ShakeCamera(2, 2);
                 }
             }
         }
@@ -181,11 +181,11 @@ public class Movement : MonoBehaviour, IMovement
             {
                 if (oldVelocity.y < -cameraShakeVelocity * 2)
                 {
-                    CameraHandler.Instance.ShakeCamera(4, 6);
+                    CameraHandler.Instance.ShakeCamera(3, 4);
                 }
                 else
                 {
-                    CameraHandler.Instance.ShakeCamera(2, 3);
+                    CameraHandler.Instance.ShakeCamera(2, 2);
                 }
             }
         }
