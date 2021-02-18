@@ -48,7 +48,8 @@ MonoBehaviour:
   portalType: {fileID: 11400000, guid: d31def63d17f71f4e95b1a4110046cd6, type: 2}
   aliveEntities:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 192
+  destinationPortal: {fileID: 0}
   isActivatable: 1
   isRepeatable: 0
 --- !u!58 &7356876274061414452

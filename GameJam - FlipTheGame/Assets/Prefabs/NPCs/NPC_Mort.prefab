@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2628603304070449007}
   - component: {fileID: 2628603304070449004}
   - component: {fileID: 2628603304070449005}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: NPC_Mort
   m_TagString: Untagged
   m_Icon: {fileID: 0}

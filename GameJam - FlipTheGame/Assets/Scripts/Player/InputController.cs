@@ -24,6 +24,7 @@ public class InputController : MonoBehaviour
     public bool IsJumping;
     public bool Interacting;
     public bool Teleporting;
+    public bool Hurt;
 
     public bool enableInputInvert;
     public bool AlternateIdle;
@@ -141,6 +142,11 @@ public class InputController : MonoBehaviour
         {
             PortalList.Add(portal);
         }
+    }
+
+    public void ResetHurt()
+    {
+        Hurt = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

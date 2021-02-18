@@ -15,6 +15,7 @@ public class Conditions : MonoBehaviour
 
     private void Respawn()
     {
+        InputController.instance.Hurt = true;
         transform.position = InputController.instance.lastCheckpoint;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2938981615528087076}
   - component: {fileID: 2938981615528087079}
   - component: {fileID: 2938981615528087078}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: NPC_Job
   m_TagString: Untagged
   m_Icon: {fileID: 0}

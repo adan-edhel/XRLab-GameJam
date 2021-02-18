@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6412093366924717244}
   - component: {fileID: 6412093366924717247}
   - component: {fileID: 6412093366924717246}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: NPC_Melissa
   m_TagString: Untagged
   m_Icon: {fileID: 0}

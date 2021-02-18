@@ -27,6 +27,7 @@ public class AnimationHandler : MonoBehaviour, IMovement
         anim.SetBool("Jumping", InputController.instance.IsJumping);
         anim.SetBool("Grounded", InputController.instance.IsGrounded);
         anim.SetBool("Alternate Idle", InputController.instance.AlternateIdle);
+        anim.SetBool("Hurt", InputController.instance.Hurt);
     }
 
     void UpdateSprite()

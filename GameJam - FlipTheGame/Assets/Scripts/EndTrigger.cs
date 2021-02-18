@@ -5,6 +5,7 @@ using UnityEngine;
 public class EndTrigger : MonoBehaviour
 {
     [SerializeField] Animator anim;
+    [SerializeField] GameObject[] EndNPCs;
     [SerializeField] ParticleSystem[] EndParticles;
 
     float waitDuration = 1f;
@@ -14,6 +15,7 @@ public class EndTrigger : MonoBehaviour
 
     private void Update()
     {
+
         if (startCountdown == false) return;
 
         timer += Time.deltaTime;
@@ -25,6 +27,42 @@ public class EndTrigger : MonoBehaviour
                 spriteRend.enabled = true;
             }
             GetComponent<Collider2D>().isTrigger = false;
+        }
+
+        if (EndNPCs.Length > 0)
+        {
+            if (InputController.instance.gravityInverted)
+            {
+                for (int i = 0; i < EndNPCs.Length; i++)
+                {
+                    EndNPCs[i].GetComponent<SpriteRenderer>().flipY = true;
+                    EndNPCs[i].GetComponent<Rigidbody2D>().gravityScale = -1;
+                }
+            }
+            else
+            {
+                for (int i = 0; i < EndNPCs.Length; i++)
+                {
+                    EndNPCs[i].GetComponent<SpriteRenderer>().flipY = false;
+                    EndNPCs[i].GetComponent<Rigidbody2D>().gravityScale = 1;
+                }
+            }
+        }
+
+        anim.SetBool("Inverted", InputController.instance.gravityInverted);
+
+        float gravityValue = 0;
+        if (InputController.instance.gravityInverted)
+        {
+            gravityValue = -.8f;
+        }
+        else
+        {
+            gravityValue = .8f;
+        }
+        for (int i = 0; i < EndParticles.Length; i++)
+        {
+            EndParticles[i].gravityModifier = gravityValue;
         }
     }
 
