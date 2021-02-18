@@ -4,7 +4,29 @@ using UnityEngine;
 
 public class EndTrigger : MonoBehaviour
 {
+    [SerializeField] Animator anim;
     [SerializeField] ParticleSystem[] EndParticles;
+
+    float waitDuration = 1f;
+    float timer;
+
+    bool startCountdown;
+
+    private void Update()
+    {
+        if (startCountdown == false) return;
+
+        timer += Time.deltaTime;
+
+        if (timer > waitDuration)
+        {
+            foreach (SpriteRenderer spriteRend in GetComponentsInChildren<SpriteRenderer>())
+            {
+                spriteRend.enabled = true;
+            }
+            GetComponent<Collider2D>().isTrigger = false;
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -21,6 +43,13 @@ public class EndTrigger : MonoBehaviour
             {
                 Debug.Log($"No particles assigned to the {name}");
             }
+
+            if (anim != null)
+            {
+                anim.SetBool("Victory", true);
+            }
+
+            startCountdown = true;
         }
     }
 }
