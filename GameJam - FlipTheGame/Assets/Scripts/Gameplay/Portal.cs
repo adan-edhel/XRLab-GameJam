@@ -120,6 +120,8 @@ public class Portal : MonoBehaviour
             {
                 particleSystem.Play();
             }
+
+            GetComponent<SpriteRenderer>().enabled = false;
         }
 
         return;
@@ -165,6 +167,11 @@ public class Portal : MonoBehaviour
         foreach (var particleSystem in GetComponentsInChildren<ParticleSystem>())
         {
             particleSystem.Stop();
+        }
+
+        if (isActivatable)
+        {
+            GetComponent<SpriteRenderer>().enabled = true;
         }
     }
 
