@@ -20,7 +20,7 @@ public class Movement : MonoBehaviour, IMovement
 
     // Ground Collision
     bool[] groundCollision = new bool[3];
-    private float groundColliderSize = .05f;
+    private float groundColliderSize = .07f;
     private float groundCollidersOffset;
     private float groundHeightOffset;
     float surfaceCheckDelayValue = .2f;

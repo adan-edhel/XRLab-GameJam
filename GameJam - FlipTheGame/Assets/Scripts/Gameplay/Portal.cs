@@ -31,7 +31,7 @@ public class Portal : MonoBehaviour
         AssignConnectedPortals();
 
         // Assign closest Cinemachine Virtualcam Confiner
-        closestConfiner = AssignClosestConfiner();
+        //closestConfiner = AssignClosestConfiner();
 
         // Stop all particles
         foreach (var particleSystem in GetComponentsInChildren<ParticleSystem>())
@@ -122,6 +122,7 @@ public class Portal : MonoBehaviour
             }
         }
 
+        return;
         // If collision has player tag
         if (collision.transform.CompareTag("Player"))
         {   // Update Cinemachine Confiner
