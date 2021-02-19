@@ -13,7 +13,8 @@ public class CameraHandler : MonoBehaviour
 
     [Header("Camera Flip Values")]
     public bool enableCameraFlipping;
-    [SerializeField] float flipCameraSpeed = 1f;
+    [SerializeField] float flipCameraSpeed = 3f;
+    [SerializeField] float cameraOffsetSpeed = 1f;
 
     float ShakeElapsedTime = 0f;
     float targetValue = 0f;
@@ -115,6 +116,32 @@ public class CameraHandler : MonoBehaviour
         {
             targetValue = 0f;
         }
+    }
+
+    public void CameraOffsetByVelocity(float velocityY)
+    {
+        float targetOffset = 0;
+        float tempOffsetSpeed = cameraOffsetSpeed;
+
+        if (Mathf.Abs(velocityY) > 15)
+        {
+            virtualCamera.GetCinemachineComponent<CinemachineTransposer>().m_YDamping = Mathf.Lerp(virtualCamera.GetCinemachineComponent<CinemachineTransposer>().m_YDamping, 0f, 1 / 100);
+            if (InputController.instance.gravityInverted)
+            {
+                targetOffset = 8;
+            }
+            else
+            {
+                targetOffset = -8;
+            }
+        }
+        else
+        {
+            virtualCamera.GetCinemachineComponent<CinemachineTransposer>().m_YDamping = Mathf.Lerp(virtualCamera.GetCinemachineComponent<CinemachineTransposer>().m_YDamping, 1f, 1 / 100);
+            tempOffsetSpeed = cameraOffsetSpeed * 4;
+        }
+
+        virtualCamera.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset.y = Mathf.Lerp(virtualCamera.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset.y, targetOffset, tempOffsetSpeed / 330);
     }
 
     private void Update()

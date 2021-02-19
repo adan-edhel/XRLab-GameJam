@@ -56,6 +56,8 @@ public class Movement : MonoBehaviour, IMovement
         {
             oldVelocity = rb.velocity;
         }
+
+        CameraHandler.Instance.CameraOffsetByVelocity(oldVelocity.y);
     }
 
     private void FixedUpdate()
