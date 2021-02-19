@@ -24,10 +24,14 @@ public class InputController : MonoBehaviour
     public bool IsJumping;
     public bool Interacting;
     public bool Teleporting;
+    public bool Checkpoint;
     public bool Hurt;
 
     public bool enableInputInvert;
     public bool AlternateIdle;
+
+    public float timer;
+    public int deathCount;
 
     IMovement[] i_Movement;
     IGravity i_Gravity;
@@ -144,7 +148,12 @@ public class InputController : MonoBehaviour
         }
     }
 
-    public void ResetHurt()
+    public void ResetCheckpointAnim()
+    {
+        Checkpoint = false;
+    }
+
+    public void ResetHurtAnim()
     {
         Hurt = false;
     }
@@ -155,6 +164,7 @@ public class InputController : MonoBehaviour
         {
             lastCheckpoint = collision.transform.position;
             Destroy(collision.gameObject);
+            Checkpoint = true;
         }
 
         if (collision.gameObject.layer == LayerMask.NameToLayer("GravityPoint"))

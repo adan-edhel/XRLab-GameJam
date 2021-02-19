@@ -61,7 +61,7 @@ MonoBehaviour:
   m_BindingMode: 1
   m_FollowOffset: {x: 0, y: 0, z: -10}
   m_XDamping: 1
-  m_YDamping: 1
+  m_YDamping: 0.5
   m_ZDamping: 1
   m_AngularDampingMode: 0
   m_PitchDamping: 0
@@ -111,7 +111,7 @@ MonoBehaviour:
   m_PivotOffset: {x: 0, y: 0, z: 0}
   m_AmplitudeGain: 1
   m_FrequencyGain: 1
-  mNoiseOffsets: {x: 0, y: 0, z: 0}
+  mNoiseOffsets: {x: -563.10913, y: -324.52597, z: 605.3827}
 --- !u!1 &7817564420728325508
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,7 +241,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7817564420818909335}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.26736343, y: 0.05391414, z: -9.939734}
+  m_LocalPosition: {x: -4.2192516, y: -2.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7817564421081889585}
@@ -383,7 +383,8 @@ MonoBehaviour:
   defaultShakeAmplitude: 1.2
   defaultShakeFrequency: 2
   enableCameraFlipping: 1
-  flipCameraSpeed: 1
+  flipCameraSpeed: 3
+  cameraOffsetSpeed: 5
 --- !u!114 &7817564421081889591
 MonoBehaviour:
   m_ObjectHideFlags: 0

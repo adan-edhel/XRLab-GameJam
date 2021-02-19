@@ -18,6 +18,7 @@ public class Conditions : MonoBehaviour
         InputController.instance.Hurt = true;
         transform.position = InputController.instance.lastCheckpoint;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        InputController.instance.deathCount++;
     }
 
     private void OnDrawGizmos()
